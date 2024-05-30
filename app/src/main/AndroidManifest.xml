@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RapidRoad"
         tools:targetApi="31">
-
+        <activity
+            android:name=".view.FaqActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -33,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".view.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,9 +44,7 @@
         </activity>
         <activity
             android:name=".view.MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

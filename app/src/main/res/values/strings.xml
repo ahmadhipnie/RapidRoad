@@ -17,4 +17,10 @@
     <string name="register">Register</string>
     <string name="username">username</string>
     <string name="already_have_account">already have account?</string>
+    <string name="nama_user">nama user</string>
+    <string name="faq">FAQ</string>
+    <string name="logout">Logout</string>
+    <string name="ubah_password">ubah password</string>
+    <string name="laporan_dibuat">laporan dibuat \n 3</string>
+    <string name="laporan_selesai">laporan selesai \n 1</string>
 </resources>
