@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">RapidRoad</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_back">welcome\nback</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="lupa_password">Forgot Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">don\'t have account</string>
+    <string name="daftar">sign up</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="maps">Maps</string>
+    <string name="profile">Profile</string>
+    <string name="register">Register</string>
+    <string name="username">username</string>
+    <string name="already_have_account">already have account?</string>
 </resources>

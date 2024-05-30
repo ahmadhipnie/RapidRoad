@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.RapidRoad" parent="Base.Theme.RapidRoad" />
+
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/colorOnPrimary</item>
+    </style>
 </resources>

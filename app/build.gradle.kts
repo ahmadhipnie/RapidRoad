@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -15,6 +16,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", "\"AIzaSyDumexeZId5Kbiboc-JHASG_yTghNB8j9I\"")
     }
 
     buildTypes {
@@ -26,6 +29,14 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+        mlModelBinding = true
+    }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -42,7 +53,29 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.core)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
+    implementation(libs.glide)
+
+    implementation(libs.cameraX)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.camera.view)
+
+    implementation(libs.datastore.preferences)
+
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.paging)
+
 }
