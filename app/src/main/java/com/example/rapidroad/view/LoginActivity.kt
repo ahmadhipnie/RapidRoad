@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.rapidroad.R
 import com.example.rapidroad.components.CustomButtonLogin
+import com.example.rapidroad.components.CustomDialogLoading
 import com.example.rapidroad.components.CustomEditTextEmail
 import com.example.rapidroad.components.CustomEditTextPassword
 import com.example.rapidroad.databinding.ActivityLoginBinding
@@ -26,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etLoginPasswordWatcher: CustomEditTextPassword
 
     private lateinit var btnLoginWatcher : CustomButtonLogin
+
+    private lateinit var dialogLoading : CustomDialogLoading
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -51,9 +54,12 @@ class LoginActivity : AppCompatActivity() {
 
 
             btnLogin.setOnClickListener {
-                Intent(this@LoginActivity, MainActivity::class.java).apply {
-                    startActivity(this)
-                }
+                dialogLoading = CustomDialogLoading(this@LoginActivity)
+                dialogLoading.setLoadingVisible(true)
+//                Intent(this@LoginActivity, MainActivity::class.java).apply {
+//                    startActivity(this)
+//                }
+//                dialogLoading.setLoadingVisible(false)
             }
 
             btnRegisterLogin.setOnClickListener {

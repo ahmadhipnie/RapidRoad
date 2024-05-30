@@ -20,8 +20,26 @@ class MapsFragment : Fragment() {
     private val callback = OnMapReadyCallback { googleMap ->
 
         val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker nang omahku"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        googleMap.uiSettings.isZoomControlsEnabled = true
+
+        // Enable zoom gestures
+        googleMap.uiSettings.isIndoorLevelPickerEnabled = true
+
+        // Enable compass
+        googleMap.uiSettings.isCompassEnabled = true
+
+        // Enable My Location Button
+        googleMap.uiSettings.isMapToolbarEnabled = true
+
+        googleMap.uiSettings.setAllGesturesEnabled(true)
+
+        googleMap.uiSettings.isScrollGesturesEnabled = true
+        googleMap.uiSettings.isZoomGesturesEnabled = true
+        googleMap.uiSettings.isTiltGesturesEnabled = true
+        googleMap.uiSettings.isRotateGesturesEnabled = true
     }
 
     override fun onCreateView(
@@ -36,5 +54,7 @@ class MapsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+
+
     }
 }

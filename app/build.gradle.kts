@@ -78,4 +78,7 @@ dependencies {
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.paging)
 
+    implementation(libs.lottie)
+
+
 }
