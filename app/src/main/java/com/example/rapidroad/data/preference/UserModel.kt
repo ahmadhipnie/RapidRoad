@@ -9,7 +9,5 @@ data class UserModel(
 
     val userPassword: String,
 
-    val userImagePath: String,
-
     val isLoggedIn: Boolean = false
 )

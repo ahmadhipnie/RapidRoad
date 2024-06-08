@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "API_KEY", "\"AIzaSyDumexeZId5Kbiboc-JHASG_yTghNB8j9I\"")
+        buildConfigField("String", "BASE_URL", "\"https://2bba-103-47-132-52.ngrok-free.app/\"")
     }
 
     buildTypes {
@@ -79,6 +80,8 @@ dependencies {
     implementation(libs.paging)
 
     implementation(libs.lottie)
+
+    implementation(libs.fragmentKtx)
 
 
 }

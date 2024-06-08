@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">RapidRoad</string>
 
+    <string name="faq_desc">
+        anda dapat mengirimkan dengan menghubungi kami melalui whatsapp. isilah kolom dibawah ini dengan pertanyaan yang anda akan ajukan.
+        tombol akan otomatis mengarahkan ke kontak kami di whatsapp.
+    </string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -23,4 +28,8 @@
     <string name="ubah_password">ubah password</string>
     <string name="laporan_dibuat">laporan dibuat \n 3</string>
     <string name="laporan_selesai">laporan selesai \n 1</string>
+    <string name="kirim_pertanyaan_ke_whatsapp">kirim pertanyaan ke whatsapp</string>
+    <string name="password_lama">password lama</string>
+    <string name="password_baru">password baru</string>
+    <string name="konfirmasi_password_baru">konfirmasi password baru</string>
 </resources>

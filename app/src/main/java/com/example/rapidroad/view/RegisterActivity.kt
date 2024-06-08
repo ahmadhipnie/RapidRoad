@@ -2,19 +2,35 @@ package com.example.rapidroad.view
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.rapidroad.R
+import com.example.rapidroad.components.CustomDialogLoading
 import com.example.rapidroad.databinding.ActivityRegisterBinding
+import com.example.rapidroad.viewmodel.RegisterViewModel
+import com.example.rapidroad.viewmodel.ViewModelFactory
+import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+
+    private lateinit var dialogLoading: CustomDialogLoading
+
+    private val registerViewModel by viewModels<RegisterViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -28,10 +44,39 @@ class RegisterActivity : AppCompatActivity() {
 
         playAnimationRegister()
 
-        with(binding){
+        with(binding) {
             btnRegister.setOnClickListener {
-                Intent(this@RegisterActivity, MainActivity::class.java).apply {
-                    startActivity(this)
+                dialogLoading = CustomDialogLoading(this@RegisterActivity)
+                dialogLoading.setLoadingVisible(true)
+                val email = etEmailRegister.text.toString()
+                val username = etUsernameRegister.text.toString()
+                val password = etPasswordRegister.text.toString()
+
+                if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                    dialogLoading.setLoadingVisible(false)
+                    Toast.makeText(this@RegisterActivity, "isi semua kontol", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                lifecycleScope.launch {
+                    try {
+                        val response = registerViewModel.register(email, username, password)
+                        dialogLoading.setLoadingVisible(false)
+                        if (response.status.toString() == "true") {
+                            Toast.makeText(this@RegisterActivity, "Register Success", Toast.LENGTH_SHORT).show()
+                            Intent(this@RegisterActivity, LoginActivity::class.java).apply {
+                                startActivity(this)
+                            }
+                            finish()
+                        } else {
+                            Toast.makeText(this@RegisterActivity, "Email already registered", Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: Exception) {
+                        dialogLoading.setLoadingVisible(false)
+                        Toast.makeText(this@RegisterActivity, "Register Failed", Toast.LENGTH_SHORT).show()
+                        Log.d(TAG, "onCreate: " + e.message)
+                        e.printStackTrace()
+                    }
                 }
             }
 
@@ -44,7 +89,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun playAnimationRegister() {
-        val durationAnimation : Long = 500
+        val durationAnimation: Long = 500
         val linearLayoutAnimation = ObjectAnimator.ofFloat(binding.llRegister, View.TRANSLATION_Y, 1000f, 0f).setDuration(1000)
         val tvEmailRegisterAnimation = ObjectAnimator.ofFloat(binding.tvEmailRegister, View.ALPHA, 1f).setDuration(durationAnimation)
         val etLayoutEmailRegisterAnimation = ObjectAnimator.ofFloat(binding.etLayoutEmailRegister, View.ALPHA, 1f).setDuration(durationAnimation)
