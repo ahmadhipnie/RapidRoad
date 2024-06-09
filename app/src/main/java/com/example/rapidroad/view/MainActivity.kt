@@ -1,9 +1,12 @@
 package com.example.rapidroad.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Process
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,6 +15,8 @@ import com.example.rapidroad.databinding.ActivityMainBinding
 import com.example.rapidroad.view.fragment.DashboardFragment
 import com.example.rapidroad.view.fragment.MapsFragment
 import com.example.rapidroad.view.fragment.ProfileFragment
+import com.example.rapidroad.viewmodel.MainViewModel
+import com.example.rapidroad.viewmodel.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -25,11 +30,23 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     var profileFragment: ProfileFragment = ProfileFragment()
 
     var mapsFragment: MapsFragment = MapsFragment()
+
+    private val mainViewModel by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
+
+        mainViewModel.getSession().observe(this@MainActivity) { user ->
+            if (!user.isLoggedIn) {
+                startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -64,6 +81,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .commit()
             }
         }
+
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

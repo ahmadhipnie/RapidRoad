@@ -17,21 +17,20 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     fun getSession() = dataStore.data.map { preference ->
         UserModel(
             preference[ID] ?: "",
-            preference[EMAIL] ?: "",
             preference[USERNAME] ?: "",
+            preference[EMAIL] ?: "",
             preference[PASSWORD] ?: "",
-            preference[IMAGE_PATH] ?: "",
             preference[IS_LOGGED_IN] ?: false
         )
     }
 
+
     suspend fun saveSession(user: UserModel) {
         dataStore.edit { preference ->
             preference[ID] = user.userId
-            preference[EMAIL] = user.userEmail
             preference[USERNAME] = user.userName
+            preference[EMAIL] = user.userEmail
             preference[PASSWORD] = user.userPassword
-            preference[IMAGE_PATH] = user.userImagePath
             preference[IS_LOGGED_IN] = true
         }
     }
@@ -47,10 +46,9 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         private var INSTANCE: UserPreference? = null
 
         private val ID = stringPreferencesKey("userId")
-        private val EMAIL = stringPreferencesKey("userEmail")
         private val USERNAME = stringPreferencesKey("userName")
+        private val EMAIL = stringPreferencesKey("userEmail")
         private val PASSWORD = stringPreferencesKey("userPassword")
-        private val IMAGE_PATH = stringPreferencesKey("userImagePath")
         private val IS_LOGGED_IN = booleanPreferencesKey("isLoggedIn")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
