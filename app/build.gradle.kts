@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -18,7 +20,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "API_KEY", "\"AIzaSyDumexeZId5Kbiboc-JHASG_yTghNB8j9I\"")
-        buildConfigField("String", "BASE_URL", "\"https://2bba-103-47-132-52.ngrok-free.app/\"")
+        buildConfigField("String", "BASE_URL", "\"https://a9bc-103-176-143-106.ngrok-free.app/\"")
     }
 
     buildTypes {
@@ -55,6 +57,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

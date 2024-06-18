@@ -1,6 +1,8 @@
 package com.example.rapidroad.data.retrofit.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class GetAllReportResponse(
 
@@ -13,9 +15,8 @@ data class GetAllReportResponse(
 	@field:SerializedName("status")
 	val status: Boolean
 )
-
+@Parcelize
 data class DataItem(
-
 	@field:SerializedName("desa")
 	val desa: String,
 
@@ -54,4 +55,5 @@ data class DataItem(
 
 	@field:SerializedName("status")
 	val status: String
-)
+) : Parcelable
+

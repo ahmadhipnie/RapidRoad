@@ -92,7 +92,7 @@ class MapsFragment : Fragment(), GoogleMap.OnInfoWindowClickListener {
                                 .position(latLng)
                                 .title(data.namaJalan)
                                 .snippet("${data.namaUser}, ${data.status}")
-                                .icon(vectorToBitmap(R.drawable.baseline_car_crash_24, Color.parseColor("#3DDC84")))
+                                .icon(vectorToBitmap(R.drawable.baseline_car_crash_24, Color.parseColor("#FF0000")))
 
                             val marker = mMap.addMarker(markerOptions)
                             marker?.tag = data
@@ -108,6 +108,11 @@ class MapsFragment : Fragment(), GoogleMap.OnInfoWindowClickListener {
                             )
                         )
                     }
+
+                    is ResultState.Error -> TODO()
+                    ResultState.Loading -> TODO()
+                    is ResultState.Success -> TODO()
+                    else -> {}
                 }
             }
         }
