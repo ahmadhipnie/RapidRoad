@@ -35,7 +35,6 @@ interface ApiService {
         @Field("new_password") NewPassword: String
     ): RegisterResponse
 
-
     @GET("laporan/all")
     suspend fun getAllReportLocation(
     ): GetAllReportResponse

@@ -29,6 +29,6 @@ class CustomButtonLogin @JvmOverloads constructor(
         setTextColor(txtColor)
         textSize = 12f
         gravity = Gravity.CENTER
-        text = if (isEnabled) "Login Kontol" else "diisi dulu Kontol"
+        text = if (isEnabled) "Login" else "Harap diisi"
     }
 }

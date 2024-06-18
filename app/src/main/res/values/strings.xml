@@ -32,4 +32,14 @@
     <string name="password_lama">password lama</string>
     <string name="password_baru">password baru</string>
     <string name="konfirmasi_password_baru">konfirmasi password baru</string>
+    <string name="story_image_description">Story image description</string>
+    <string name="pelapor_john_doe">Pelapor: John Doe</string>
+    <string name="tanggal_22_04_2003">Tanggal: 22-04-2003</string>
+    <string name="deskripsi">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</string>
+    <string name="Lokasi">Lokasi: Jl.Kapuas no 12, Jember</string>
+    <string name="rusak"> Status: rusak</string>
+    <string name="description">Deskripsi</string>
+    <string name="upload">Laporkan</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galery</string>
 </resources>
