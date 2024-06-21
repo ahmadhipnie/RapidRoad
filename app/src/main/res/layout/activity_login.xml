@@ -80,7 +80,7 @@
                 android:minHeight="48dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

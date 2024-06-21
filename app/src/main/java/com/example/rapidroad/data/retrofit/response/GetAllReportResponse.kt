@@ -20,7 +20,7 @@ data class DataItem(
 	@field:SerializedName("desa")
 	val desa: String,
 
-	@field:SerializedName("keterangan")
+	@field:SerializedName("keterangan_ml")
 	val keterangan: String,
 
 	@field:SerializedName("kota")
@@ -44,7 +44,7 @@ data class DataItem(
 	@field:SerializedName("tanggal")
 	val tanggal: String,
 
-	@field:SerializedName("nama_user")
+	@field:SerializedName("user")
 	val namaUser: String,
 
 	@field:SerializedName("path_foto_laporan")
@@ -54,6 +54,7 @@ data class DataItem(
 	val longitude: Double,
 
 	@field:SerializedName("status")
-	val status: String
+	val status: String,
+
 ) : Parcelable
 

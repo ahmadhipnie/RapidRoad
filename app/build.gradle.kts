@@ -20,7 +20,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "API_KEY", "\"AIzaSyDumexeZId5Kbiboc-JHASG_yTghNB8j9I\"")
-        buildConfigField("String", "BASE_URL", "\"https://a9bc-103-176-143-106.ngrok-free.app/\"")
+        buildConfigField("String", "BASE_URL", "\"https://capstone-sv67gbtaea-et.a.run.app/\"")
     }
 
     buildTypes {

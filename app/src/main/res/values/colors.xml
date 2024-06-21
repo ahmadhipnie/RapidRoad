@@ -7,4 +7,5 @@
     <color name="colorOnPrimary">#365486</color>
     <color name="colorPrimaryVariant">#DCF2F1</color>
     <color name="light_gray">#eeeeee</color>
+    <color name="editTextStyleLight">#DE000000</color>
 </resources>
