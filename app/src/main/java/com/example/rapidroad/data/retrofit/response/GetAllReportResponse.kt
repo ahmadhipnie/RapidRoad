@@ -23,6 +23,9 @@ data class DataItem(
 	@field:SerializedName("keterangan_ml")
 	val keterangan: String,
 
+	@field:SerializedName("keterangan_user")
+	val keteranganUser: String,
+
 	@field:SerializedName("kota")
 	val kota: String,
 

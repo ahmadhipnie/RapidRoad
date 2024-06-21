@@ -36,7 +36,8 @@ class DetailActivity : AppCompatActivity() {
             binding.tvTime.text = "Tanggal: $formattedTimeString"
             binding.tvLokasi.text = "Lokasi: Jl.${it.namaJalan}, ${it.desa}, ${it.kecamatan}, ${it.kota}"
             binding.tvStatus.text = "Status: $check"
-            binding.tvDetailDescription.text = "Keterangan: ${it.keterangan}"
+            binding.tvDescription.text = "Keterangan: ${it.keterangan}"
+            binding.tvDetailDescription.text = "Deskripsi: ${it.keteranganUser}"
 
             Glide.with(binding.root)
                 .load(it.pathFotoLaporan)
