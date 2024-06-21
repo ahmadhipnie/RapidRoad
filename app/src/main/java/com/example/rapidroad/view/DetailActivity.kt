@@ -34,9 +34,10 @@ class DetailActivity : AppCompatActivity() {
 
             binding.tvDetailName.text = "Pelapor: ${it.namaUser}"
             binding.tvTime.text = "Tanggal: $formattedTimeString"
-            binding.tvLokasi.text = "Lokasi: Jl.${it.namaJalan},${it.desa},${it.kecamatan},${it.kota}"
+            binding.tvLokasi.text = "Lokasi: Jl.${it.namaJalan}, ${it.desa}, ${it.kecamatan}, ${it.kota}"
             binding.tvStatus.text = "Status: $check"
             binding.tvDetailDescription.text = "Keterangan: ${it.keterangan}"
+
             Glide.with(binding.root)
                 .load(it.pathFotoLaporan)
                 .into(binding.ivDetailPhoto)

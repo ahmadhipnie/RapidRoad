@@ -2,6 +2,7 @@ package com.example.rapidroad.utils
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
@@ -30,6 +31,17 @@ fun getImageUri(context: Context): Uri {
     }
 }
 
+fun getRealPathFromURI(context: Context, contentUri: Uri): String? {
+    var cursor: Cursor? = null
+    return try {
+        val proj = arrayOf(MediaStore.Images.Media.DATA)
+        cursor = context.contentResolver.query(contentUri, proj, null, null, null)
+        val column_index = cursor?.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        cursor?.moveToFirst()
+        cursor?.getString(column_index ?: 0)
+    } finally {
+        cursor?.close()
+    }}
 private fun fallbackUri(context: Context): Uri {
     val pictureDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
     val photoFile = File(pictureDir, "/RapidRoad/$currentTime.jpg")

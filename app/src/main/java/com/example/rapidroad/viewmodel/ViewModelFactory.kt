@@ -29,7 +29,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             modelClass.isAssignableFrom(DashboardViewModel::class.java) -> {
                 DashboardViewModel(repository) as T
             }
-
+            modelClass.isAssignableFrom(LaporViewModel::class.java) -> {
+                LaporViewModel(repository) as T
+            }
             modelClass.isAssignableFrom(MapsViewModel::class.java) -> {
                 MapsViewModel(repository) as T
             }

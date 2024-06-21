@@ -35,7 +35,7 @@ class DashboardAdapter : ListAdapter<DataItem, DashboardAdapter.ViewHolder>(Diff
         }
 
         fun bind(dataItem: DataItem) {
-            binding.textViewTitle.text = "Lokasi: Jl.${dataItem.namaJalan}, Kec.${dataItem.kecamatan}"
+            binding.textViewTitle.text = "Lokasi: Jl.${dataItem.namaJalan}, ${dataItem.desa}"
             binding.textViewDescription.text = "Kondisi: ${dataItem.keterangan}"
             Glide.with(binding.root)
                 .load(dataItem.pathFotoLaporan)
@@ -64,7 +64,7 @@ class DashboardAdapter : ListAdapter<DataItem, DashboardAdapter.ViewHolder>(Diff
         } else {
             val lowerCaseQuery = query.toLowerCase(Locale.ROOT)
             fullDataList.filter {
-                it.kota.toLowerCase(Locale.ROOT).contains(lowerCaseQuery) ||
+                it.desa.toLowerCase(Locale.ROOT).contains(lowerCaseQuery) ||
                         it.namaJalan.toLowerCase(Locale.ROOT).contains(lowerCaseQuery)
             }
         }
